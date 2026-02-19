@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "About the Game";
+}
+
+<section class="space-panel page-hero">
+    <div>
+        <h1 class="title">About the Game</h1>
+        <p class="subtitle">Explore winding routes across star systems, capture planets and race to become the supreme commander.</p>
+
+        <p class="mt-3">
+            This online board-style game blends strategy and luck. Players navigate a star-map, claim planetary systems and earn upgrades for their fleet.
+            The paths, stars and planets are procedurally-rebalanced each match so no two games feel the same.
+        </p>
+
+        <ul class="mt-3">
+            <li><strong>Map:</strong> Dynamic starboard with branching routes and star-jumps.</li>
+            <li><strong>Progression:</strong> Fleet upgrades, resource nodes and special events.</li>
+            <li><strong>Multiplayer:</strong> Real-time turn resolving and ranked matches.</li>
+        </ul>
+
+        <div class="mt-3">
+            <a class="btn btn-space" asp-area="" asp-controller="Home" asp-action="Play">Play Now</a>
+            <a class="btn btn-outline-light ms-2" asp-area="" asp-controller="Home" asp-action="Index">Back to Home</a>
+        </div>
+    </div>
+
+    <aside>
+        <div class="space-panel text-center">
+            <img src="/images/gameboard-thumb.png" alt="gameboard preview" class="img-fluid rounded mb-2" />
+            <div class="small text-muted">Snapshot of an in-game board. Full board is interactive.</div>
+            <div class="star-list mt-3">
+                <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+            </div>
+        </div>
+    </aside>
+</section>

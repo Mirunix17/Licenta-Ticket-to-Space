@@ -1,0 +1,252 @@
+:root {
+    --space-bg-color: #05071a;
+    --space-accent: #ffd66b; /* warm gold */
+    --space-cyan: #3fe0ff;
+    --space-purple: #8b5cff;
+    --space-muted: rgba(255,255,255,0.85);
+    --panel-bg: rgba(8,10,20,0.62);
+    --glass-blur: 6px;
+
+    /* Change this to the PNG you want to use. Keep path relative to wwwroot. */
+    --space-wallpaper: url('/images/space-wallpaper.png');
+    /* Optional fallback (SVG) if PNG missing or you prefer): */
+    --space-wallpaper-fallback: url('/images/space-wallpaper-nebula.svg');
+}
+
+body.space-theme {
+    font-family: 'Exo 2', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: var(--space-muted);
+    /* layered backgrounds: gradient on top of wallpaper image */
+    background-image:
+        linear-gradient(180deg, rgba(6,8,20,0.6), rgba(3,5,12,0.75)),
+        var(--space-wallpaper), /* primary: PNG */
+        var(--space-wallpaper-fallback); /* fallback: SVG */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* High-DPI devices: serve a @2x PNG if you provide one named like space-wallpaper@2x.png */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    :root { --space-wallpaper: url('/images/space-wallpaper@2x.png'); }
+}
+
+/* Navbar */
+.space-navbar {
+    background: linear-gradient(90deg, rgba(4,6,12,0.6), rgba(8,12,30,0.25));
+    box-shadow: 0 2px 18px rgba(0,0,0,0.6);
+}
+.space-navbar .navbar-brand {
+    color: var(--space-cyan);
+    text-shadow: 0 0 8px rgba(63,224,255,0.12);
+    font-family: 'Orbitron', 'Exo 2', sans-serif;
+}
+.space-navbar .nav-link {
+    color: rgba(255,255,255,0.85);
+    margin-right: 0.5rem;
+    transition: color .18s ease, text-shadow .18s ease;
+}
+.space-navbar .nav-link:hover,
+.space-navbar .nav-link.active {
+    color: var(--space-cyan);
+    text-shadow: 0 0 10px rgba(63,224,255,0.18);
+}
+
+/* AUTH NAV LINK VISIBILITY - overrides for Bootstrap classes on dark theme */
+.space-navbar .nav-link,
+.space-navbar .nav-link.btn,
+.space-navbar .nav-link.btn-link,
+.space-navbar button.nav-link
+{
+    color: var(--space-muted) !important; /* visible light color */
+    text-shadow: 0 0 6px rgba(255,255,255,0.03);
+}
+
+/* Hover / active states */
+.space-navbar .nav-link:hover,
+.space-navbar .nav-link.active,
+.space-navbar .nav-link.btn:hover,
+.space-navbar .nav-link.btn-link:hover,
+.space-navbar button.nav-link:hover
+{
+    color: var(--space-cyan) !important;
+    text-shadow: 0 0 10px rgba(63,224,255,0.16);
+}
+
+/* Make link-like buttons (Logout) match nav-link style */
+.space-navbar .btn-link.nav-link {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+/* Ensure dropdown / manage link contrast if you add one later */
+.space-navbar .dropdown-item {
+    color: rgba(255,255,255,0.92);
+}
+.space-navbar .dropdown-item:hover {
+    color: var(--space-cyan);
+    background: rgba(63,224,255,0.03);
+}
+
+/* Panels / cards */
+.space-panel {
+    background: var(--panel-bg);
+    border-radius: 12px;
+    padding: 1.6rem;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Hero */
+.page-hero {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 1.4rem;
+    align-items: center;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+.page-hero .title {
+    font-family: 'Orbitron', 'Exo 2', sans-serif;
+    color: var(--space-accent);
+    font-size: 2.6rem;
+    line-height: 1.02;
+    text-shadow: 0 3px 18px rgba(255,214,107,0.08);
+}
+.page-hero .subtitle {
+    color: rgba(255,255,255,0.86);
+    margin-top: 0.6rem;
+}
+
+/* CTA */
+.btn-space {
+    background: linear-gradient(90deg, var(--space-cyan), #7ae6ff);
+    color: #021021;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 8px 36px rgba(63,224,255,0.06);
+}
+
+/* Small decorative stars list */
+.star-list {
+    display:flex;
+    gap:0.6rem;
+    flex-wrap:wrap;
+}
+.star {
+    width:10px;
+    height:10px;
+    background: radial-gradient(circle at 30% 30%, #fff, rgba(255,214,107,0.9) 30%, rgba(255,214,107,0.08) 60%);
+    border-radius:50%;
+    box-shadow: 0 0 8px rgba(255,214,107,0.12);
+}
+
+/* Page-specific utilities */
+.planet-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap:1rem; margin-top:1rem; }
+.planet {
+    height:120px;
+    border-radius:10px;
+    overflow:hidden;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--space-cyan);
+    font-weight:600;
+}
+
+/* Footer small */
+footer.footer { background:transparent; color:rgba(255,255,255,0.6); }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .page-hero { grid-template-columns: 1fr; text-align:center; }
+    .page-hero .title { font-size:2rem; }
+}
+
+/* Form control contrast for dark wallpaper */
+.space-theme .form-control,
+.space-theme input[type="text"],
+.space-theme input[type="email"],
+.space-theme input[type="password"],
+.space-theme input[type="tel"],
+.space-theme input[type="date"],
+.space-theme textarea,
+.space-theme select
+{
+    background: rgba(255,255,255,0.04) !important;
+    color: var(--space-muted) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: none !important;
+
+    /* spacing / padding to prevent visual overlap */
+    padding: 0.85rem 1rem !important;
+    margin-bottom: 1rem !important;
+    border-radius: 8px !important;
+    z-index: 1;
+}
+
+/* Ensure labels sit above inputs and are visible */
+.space-theme label,
+.space-theme .form-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--space-muted) !important;
+    font-weight: 400;
+}
+
+/* Placeholder text (so the hints are visible) */
+.space-theme .form-control::placeholder,
+.space-theme input::placeholder,
+.space-theme textarea::placeholder
+{
+    color: rgba(255,255,255,0.62) !important;
+    opacity: 1; /* ensure consistent appearance */
+}
+
+/* If some forms used floating labels, make sure they don't overlap */
+.space-theme .form-floating > .form-control,
+.space-theme .form-floating > .form-control:focus {
+    padding-top: 1.2rem !important;
+}
+
+/* Validation and small help text */
+.space-theme .form-text,
+.space-theme .field-validation-error,
+.space-theme .validation-summary-errors {
+    color: rgba(255,255,255,0.85) !important;
+}
+
+/* Focus style for accessibility */
+.space-theme .form-control:focus,
+.space-theme input:focus,
+.space-theme textarea:focus,
+.space-theme select:focus
+{
+    border-color: var(--space-cyan) !important;
+    box-shadow: 0 0 12px rgba(63,224,255,0.12) !important;
+    outline: none !important;
+}
+
+/* Make primary buttons readable on dark background (Register button) */
+.space-theme .btn-primary,
+.space-theme button.btn-primary
+{
+    background: linear-gradient(90deg, var(--space-cyan), #7ae6ff) !important;
+    color: #021021 !important;
+    border: none !important;
+    padding: 0.75rem 1.6rem !important;
+    border-radius: 10px !important;
+}
+
+/* Small: ensure link-styled buttons (Logout) remain visible */
+.space-theme .btn-link,
+.space-theme .nav-link
+{
+    color: var(--space-muted) !important;
+}

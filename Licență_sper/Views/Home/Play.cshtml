@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Play";
+}
+
+<section class="space-panel">
+    <div class="text-center">
+        <h1 class="title">Launch Mission</h1>
+        <p class="subtitle">Jump into a match or practice against AI pilots.</p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <div class="space-panel">
+                <h5>Quick Start</h5>
+                <p>Click "Launch" to enter matchmaking. You will be placed on a randomized starmap with 3–6 opponents.</p>
+
+                <div class="mt-3 d-flex gap-2">
+                    <button class="btn btn-space btn-lg">Launch</button>
+                    <a class="btn btn-outline-light" asp-area="" asp-controller="Home" asp-action="Index">Practice</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="space-panel text-center">
+                <h6>Current Season</h6>
+                <div class="mt-2">
+                    <strong class="text-warning">Nebula Season I</strong>
+                </div>
+                <div class="mt-3">
+                    <img src="/images/commander-avatar.png" alt="commander" class="img-fluid rounded" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
