@@ -153,3 +153,9 @@ C:\Users\mirun\source\repos\Licență_sper\Licență_sper\obj\Debug\net8.0\refin
 C:\Users\mirun\source\repos\Licență_sper\Licență_sper\obj\Debug\net8.0\Licență_sper.pdb
 C:\Users\mirun\source\repos\Licență_sper\Licență_sper\obj\Debug\net8.0\Licență_sper.genruntimeconfig.cache
 C:\Users\mirun\source\repos\Licență_sper\Licență_sper\obj\Debug\net8.0\ref\Licență_sper.dll
+C:\Users\mirun\source\repos\Licență_sper\Licență_sper\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\mirun\source\repos\Licență_sper\Licență_sper\bin\Debug\net8.0\MailKit.dll
+C:\Users\mirun\source\repos\Licență_sper\Licență_sper\bin\Debug\net8.0\MimeKit.dll
+C:\Users\mirun\source\repos\Licență_sper\Licență_sper\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\mirun\source\repos\Licență_sper\Licență_sper\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\mirun\source\repos\Licență_sper\Licență_sper\obj\Debug\net8.0\Licență_sper.sourcelink.json

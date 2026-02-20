@@ -16,8 +16,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
-    // Pentru testing - setăm să NU ceară confirmare email
-    options.SignIn.RequireConfirmedAccount = false;
+    options.SignIn.RequireConfirmedAccount = true;
 
     // Setări parolă
     options.Password.RequireDigit = true;

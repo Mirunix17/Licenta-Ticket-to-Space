@@ -1,20 +1,40 @@
-﻿using Microsoft.AspNetCore.Identity.UI.Services;
-using System.Threading.Tasks;
+﻿using MailKit.Net.Smtp;
+using MailKit.Security;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using MimeKit;
 
 namespace Licență_sper.Services
 {
     public class EmailSender : IEmailSender
     {
-        public Task SendEmailAsync(string email, string subject, string htmlMessage)
-        {
-            // Pentru development - afișează în consolă
-            Console.WriteLine("═══════════════════════════════════════");
-            Console.WriteLine($"📧 EMAIL TO: {email}");
-            Console.WriteLine($"📋 SUBJECT: {subject}");
-            Console.WriteLine($"💬 MESSAGE: {htmlMessage}");
-            Console.WriteLine("═══════════════════════════════════════");
+        private readonly IConfiguration _config;
 
-            return Task.CompletedTask;
+        public EmailSender(IConfiguration config)
+        {
+            _config = config;
+        }
+
+        public async Task SendEmailAsync(string email, string subject, string htmlMessage)
+        {
+            var settings = _config.GetSection("EmailSettings");
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(
+                settings["SenderName"],
+                settings["SenderEmail"]));
+            message.To.Add(MailboxAddress.Parse(email));
+            message.Subject = subject;
+            message.Body = new TextPart("html") { Text = htmlMessage };
+
+            using var client = new SmtpClient();
+            await client.ConnectAsync(settings["SmtpHost"],
+                int.Parse(settings["SmtpPort"]!),
+                SecureSocketOptions.StartTls);
+            await client.AuthenticateAsync(
+                settings["SenderEmail"],
+                settings["Password"]);
+            await client.SendAsync(message);
+            await client.DisconnectAsync(true);
         }
     }
 }

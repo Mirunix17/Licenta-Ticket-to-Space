@@ -250,3 +250,26 @@ footer.footer { background:transparent; color:rgba(255,255,255,0.6); }
 {
     color: var(--space-muted) !important;
 }
+
+/* Fix form-floating - scoate comportamentul floating complet */
+.space-theme .form-floating {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+    .space-theme .form-floating > label {
+        order: -1;
+        position: static !important;
+        transform: none !important;
+        font-size: 0.95rem !important;
+        padding: 0 0 0.4rem 0 !important;
+        color: var(--space-muted) !important;
+        opacity: 1 !important;
+        height: auto !important;
+    }
+
+    .space-theme .form-floating > .form-control {
+        padding: 0.85rem 1rem !important;
+        height: auto !important;
+    }

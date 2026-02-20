@@ -31,7 +31,10 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AboutGame">About the Game</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Play">Play</a>
+                            @if (User.Identity != null && User.Identity.IsAuthenticated)
+                            {
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Play">Play</a>
+                            }
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AboutGalaxy">About the Galaxy</a>

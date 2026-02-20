@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Licență_sper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6cfdd6790f3043d261c52ec603ab92630cdf62af")]
 [assembly: System.Reflection.AssemblyProductAttribute("Licență_sper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Licență_sper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
